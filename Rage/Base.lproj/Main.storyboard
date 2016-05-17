@@ -111,6 +111,7 @@
                     <navigationItem key="navigationItem" id="BD6-x4-wKJ"/>
                     <connections>
                         <outlet property="labelImageView" destination="pqz-Ro-sqj" id="KSM-VU-ori"/>
+                        <outlet property="tipsLabel" destination="AKf-e1-w76" id="vb6-3y-bfx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vbq-jZ-tsf" userLabel="First Responder" sceneMemberID="firstResponder"/>

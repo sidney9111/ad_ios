@@ -7,7 +7,6 @@
 //
 import UIKit
 import Foundation
-
 class ImageBoardController:UIViewController{
   @IBOutlet weak var labelImageView: UIImageView!
     @IBOutlet weak var tipsLabel: CBAutoScrollLabel!
