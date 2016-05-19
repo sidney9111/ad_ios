@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rS3-R9-Ivy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rS3-R9-Ivy">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -101,6 +101,13 @@
                                 <rect key="frame" x="135" y="213" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2b-0Q-tnG">
+                                <rect key="frame" x="75" y="170" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="didTouchDownListButton:" destination="vbq-jZ-tsf" eventType="touchDown" id="TX4-6Z-RdW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -110,6 +117,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="BD6-x4-wKJ"/>
                     <connections>
+                        <outlet property="btnList" destination="H2b-0Q-tnG" id="i15-Qn-lkE"/>
                         <outlet property="labelImageView" destination="pqz-Ro-sqj" id="KSM-VU-ori"/>
                         <outlet property="tipsLabel" destination="AKf-e1-w76" id="vb6-3y-bfx"/>
                     </connections>

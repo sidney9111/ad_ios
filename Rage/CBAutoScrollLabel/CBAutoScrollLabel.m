@@ -268,7 +268,18 @@ static void each_object(NSArray *objects, void (^block)(id object))
     _scrolling = YES;
     [self applyGradientMaskForFadeLength:self.fadeLength enableFade:YES];
 }
-
+//-(void)setScrolling:(BOOL)isScrolling
+//{
+//  _scrolling = isScrolling;
+//}
+-(void)resumeScroll{
+  self.scrollView.layer.speed = 1.0;
+  _scrolling = true;
+}
+-(void)stopScroll{
+  self.scrollView.layer.speed = 0;
+  _scrolling = false;
+}
 - (void)scrollLabelIfNeeded
 {
     if (!self.text.length)

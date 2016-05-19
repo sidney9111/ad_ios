@@ -10,6 +10,7 @@ import Foundation
 class ImageBoardController:UIViewController{
   @IBOutlet weak var labelImageView: UIImageView!
     @IBOutlet weak var tipsLabel: CBAutoScrollLabel!
+  @IBOutlet weak var btnList: UIButton!
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -27,7 +28,7 @@ class ImageBoardController:UIViewController{
     //let img = UIImageView()
     
     labelImageView.image = UIImage(named: "premium")
-    tipsLabel.text="dfasdfasdfsdfsdfa"
+    tipsLabel.text="dfasdfasdfsdfsdfa12222222222222222222222222222222222222"
     
   }
   
@@ -39,5 +40,15 @@ class ImageBoardController:UIViewController{
   
   func reload(){
     //var img=self.imgTitle
+  }
+  
+  @IBAction func didTouchDownListButton(sender: AnyObject){
+    
+    if(tipsLabel.scrolling){
+      tipsLabel.stopScroll()
+      //tipsLabel.setScrolling(false)
+    }else{
+      tipsLabel.resumeScroll()
+    }
   }
 }
