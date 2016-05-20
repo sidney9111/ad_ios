@@ -9,8 +9,11 @@ import UIKit
 import Foundation
 class ImageBoardController:UIViewController{
   @IBOutlet weak var labelImageView: UIImageView!
-    @IBOutlet weak var tipsLabel: CBAutoScrollLabel!
+  @IBOutlet weak var tipsLabel: CBAutoScrollLabel!
   @IBOutlet weak var btnList: UIButton!
+  var touchPoint:CGPoint!
+  var touchTime:CFTimeInterval!
+  var _touchPressed:Bool!
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -38,9 +41,11 @@ class ImageBoardController:UIViewController{
     for touch in touches{
 //      var point = touch.locationInView(self)
       let bol = CGRectContainsPoint(tipsLabel.bounds, touch.locationInView(self.tipsLabel))
-      print(bol)
+      //print(bol)
       if bol{
-        self.tipsLabel.pauseScroll()
+        //self.tipsLabel.pauseScroll()
+        touchPoint = touch.locationInView(self.tipsLabel)
+        touchTime = CACurrentMediaTime()
       }
     }
     
@@ -48,10 +53,46 @@ class ImageBoardController:UIViewController{
     
   }
   override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    if(touchPoint==nil){
+      return;
+    }
+    print(touchTime)
     //ß
+    for touch in touches{
+      let point = touch.locationInView(self.tipsLabel)
+      if(CACurrentMediaTime()-touchTime>0.5){
+        print("pressed");
+        _touchPressed = true
+        self.tipsLabel.pauseScroll()
+        self.tipsLabel.move(point,dest:touchPoint)
+      }
+      
+      touchPoint = point
+      //print(touchPoint.x-point.x)
+      
+    }
   }
   override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    self.tipsLabel.resumeScroll();
+    for touch in touches{
+      //      var point = touch.locationInView(self)
+      let bol = CGRectContainsPoint(tipsLabel.bounds, touch.locationInView(self.tipsLabel))
+      print(bol)
+      if bol{
+        if(_touchPressed != nil && _touchPressed==true){
+        
+        }else{
+          if(self.tipsLabel.scrolling){
+            self.tipsLabel.pauseScroll()
+          }else{
+            self.tipsLabel.resumeScroll();
+          }
+        }
+      }
+      
+      touchPoint = nil
+      _touchPressed = false
+    }
+    
   }
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)

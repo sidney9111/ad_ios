@@ -61,6 +61,7 @@ typedef enum  {
 - (void)stopScroll;
 - (void)pauseScroll;
 - (void)resumeScroll;
+- (void)move:(CGPoint)src dest:(CGPoint)dest;
 /**
  * Initiates auto-scroll if the label width exceeds the bounds of the scrollview.
  */

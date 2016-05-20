@@ -273,6 +273,9 @@ static void each_object(NSArray *objects, void (^block)(id object))
 //  _scrolling = isScrolling;
 //}
 -(void)resumeScroll{
+  if(_scrolling==true){
+    return;
+  }
   self.scrollView.layer.speed = 1.0;
   CFTimeInterval pausedTime = [self.scrollView.layer timeOffset];
   self.scrollView.layer.timeOffset = 0.0;
@@ -292,6 +295,10 @@ static void each_object(NSArray *objects, void (^block)(id object))
   CFTimeInterval pausedTime = [self.scrollView.layer convertTime:CACurrentMediaTime() fromLayer:self.scrollView.layer];
   self.scrollView.layer.timeOffset = pausedTime;
   _scrolling = false;
+}
+-(void)move:(CGPoint )src dest:(CGPoint )dest{
+  float len = src.x - dest.x;
+  self.scrollView.layer.timeOffset +=0.1;
 }
 - (void)scrollLabelIfNeeded
 {
