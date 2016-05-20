@@ -274,10 +274,17 @@ static void each_object(NSArray *objects, void (^block)(id object))
 //}
 -(void)resumeScroll{
   self.scrollView.layer.speed = 1.0;
+  CFTimeInterval pausedTime = [self.scrollView.layer timeOffset];
+  self.scrollView.layer.timeOffset = 0.0;
+  self.scrollView.layer.beginTime = 0.0;
+  CFTimeInterval timeSincePause = [self.scrollView.layer convertTime:CACurrentMediaTime() fromLayer:self.scrollView.layer] - pausedTime;
+  self.scrollView.layer.beginTime = timeSincePause;
   _scrolling = true;
 }
 -(void)stopScroll{
   self.scrollView.layer.speed = 0;
+  CFTimeInterval pausedTime = [self.scrollView.layer convertTime:CACurrentMediaTime() fromLayer:self.scrollView.layer];
+  self.scrollView.layer.timeOffset = pausedTime;
   _scrolling = false;
 }
 - (void)scrollLabelIfNeeded
@@ -300,9 +307,13 @@ static void each_object(NSArray *objects, void (^block)(id object))
     
     // animate the scrolling
     NSTimeInterval duration = labelWidth / self.scrollSpeed;
-    [UIView animateWithDuration:duration delay:self.pauseInterval options:self.animationOptions | UIViewAnimationOptionAllowUserInteraction animations:^{
+    //[UIView animateWithDuration:duration delay:self.pauseInterval options:self.animationOptions |
+  [UIView animateWithDuration:duration delay:0 options:self.animationOptions |
+    UIViewAnimationOptionAllowUserInteraction animations:^{
+      NSLog(@"auto scroll testing..........");
         // adjust offset
-        self.scrollView.contentOffset = (doScrollLeft ? CGPointMake(labelWidth + self.labelSpacing, 0) : CGPointZero);
+       self.scrollView.contentOffset = (doScrollLeft ? CGPointMake(labelWidth + self.labelSpacing, 0) : CGPointZero);
+      //self.scrollView.contentOffset = CGPointMake(200,0);
     } completion:^(BOOL finished) {
         _scrolling = NO;
         
@@ -422,6 +433,10 @@ static void each_object(NSArray *objects, void (^block)(id object))
         // Remove gradient mask for 0.0f lenth fade length
         self.layer.mask = nil;
     }
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+  NSLog(@"touchesBegan - touch count = %lu", [touches count]);
 }
 
 @end

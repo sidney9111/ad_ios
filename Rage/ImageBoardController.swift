@@ -31,7 +31,9 @@ class ImageBoardController:UIViewController{
     tipsLabel.text="dfasdfasdfsdfsdfa12222222222222222222222222222222222222"
     
   }
-  
+  override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+    print("touches - began - swift version")
+  }
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
