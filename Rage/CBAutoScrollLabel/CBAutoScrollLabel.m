@@ -287,6 +287,12 @@ static void each_object(NSArray *objects, void (^block)(id object))
   self.scrollView.layer.timeOffset = pausedTime;
   _scrolling = false;
 }
+-(void)pauseScroll{
+  self.scrollView.layer.speed = 0;
+  CFTimeInterval pausedTime = [self.scrollView.layer convertTime:CACurrentMediaTime() fromLayer:self.scrollView.layer];
+  self.scrollView.layer.timeOffset = pausedTime;
+  _scrolling = false;
+}
 - (void)scrollLabelIfNeeded
 {
     if (!self.text.length)

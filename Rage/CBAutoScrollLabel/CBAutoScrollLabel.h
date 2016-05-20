@@ -59,6 +59,7 @@ typedef enum  {
 - (void)setAttributedText:(NSAttributedString *)theText refreshLabels:(BOOL)refresh;
 //- (void)setScrolling:(BOOL)isScrolling;
 - (void)stopScroll;
+- (void)pauseScroll;
 - (void)resumeScroll;
 /**
  * Initiates auto-scroll if the label width exceeds the bounds of the scrollview.

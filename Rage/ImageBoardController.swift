@@ -30,9 +30,28 @@ class ImageBoardController:UIViewController{
     labelImageView.image = UIImage(named: "premium")
     tipsLabel.text="dfasdfasdfsdfsdfa12222222222222222222222222222222222222"
     
+    
   }
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
-    print("touches - began - swift version")
+    //print("tou	ches - began - swift version")
+    print("touch ches")
+    for touch in touches{
+//      var point = touch.locationInView(self)
+      let bol = CGRectContainsPoint(tipsLabel.bounds, touch.locationInView(self.tipsLabel))
+      print(bol)
+      if bol{
+        self.tipsLabel.pauseScroll()
+      }
+    }
+    
+    
+    
+  }
+  override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    //ß
+  }
+  override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    self.tipsLabel.resumeScroll();
   }
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
