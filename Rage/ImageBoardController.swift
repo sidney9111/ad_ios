@@ -32,8 +32,8 @@ class ImageBoardController:UIViewController{
     
     labelImageView.image = UIImage(named: "premium")
     tipsLabel.text="dfasdfasdfsdfsdfa12222222222222222222222222222222222222"
-    
-    
+    //tipsLabel.pauseScroll()
+    tipsLabel.setScroll(true)
   }
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
     //print("tou	ches - began - swift version")
@@ -41,8 +41,9 @@ class ImageBoardController:UIViewController{
     for touch in touches{
 //      var point = touch.locationInView(self)
       let bol = CGRectContainsPoint(tipsLabel.bounds, touch.locationInView(self.tipsLabel))
-      //print(bol)
+      print(bol)
       if bol{
+        self.tipsLabel.autoScroll = true;
         //self.tipsLabel.pauseScroll()
         touchPoint = touch.locationInView(self.tipsLabel)
         touchTime = CACurrentMediaTime()
@@ -56,16 +57,16 @@ class ImageBoardController:UIViewController{
     if(touchPoint==nil){
       return;
     }
-    print(touchTime)
+    print(CACurrentMediaTime())
     //ß
     for touch in touches{
       let point = touch.locationInView(self.tipsLabel)
-      if(CACurrentMediaTime()-touchTime>0.5){
+      //if(CACurrentMediaTime()-touchTime>0.5){
         print("pressed");
         _touchPressed = true
         self.tipsLabel.pauseScroll()
         self.tipsLabel.move(point,dest:touchPoint)
-      }
+      //}
       
       touchPoint = point
       //print(touchPoint.x-point.x)

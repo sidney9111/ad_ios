@@ -291,6 +291,9 @@ static void each_object(NSArray *objects, void (^block)(id object))
   _scrolling = false;
 }
 -(void)pauseScroll{
+  if(self.scrolling==false){
+    return;
+  }
   self.scrollView.layer.speed = 0;
   CFTimeInterval pausedTime = [self.scrollView.layer convertTime:CACurrentMediaTime() fromLayer:self.scrollView.layer];
   self.scrollView.layer.timeOffset = pausedTime;
@@ -298,10 +301,17 @@ static void each_object(NSArray *objects, void (^block)(id object))
 }
 -(void)move:(CGPoint )src dest:(CGPoint )dest{
   float len = src.x - dest.x;
-  self.scrollView.layer.timeOffset +=0.1;
+  float duration = len /self.scrollSpeed;
+  NSLog(@"%f",duration);
+  self.scrollView.layer.timeOffset += - duration;
+}
+-(void)setScroll:(BOOL)scrolling{
+  _scrolling = scrolling;
 }
 - (void)scrollLabelIfNeeded
 {
+  
+
     if (!self.text.length)
         return;
     
@@ -324,6 +334,10 @@ static void each_object(NSArray *objects, void (^block)(id object))
   [UIView animateWithDuration:duration delay:0 options:self.animationOptions |
     UIViewAnimationOptionAllowUserInteraction animations:^{
       NSLog(@"auto scroll testing..........");
+      if(_autoScroll==false)
+      {
+        return;
+      }
         // adjust offset
        self.scrollView.contentOffset = (doScrollLeft ? CGPointMake(labelWidth + self.labelSpacing, 0) : CGPointZero);
       //self.scrollView.contentOffset = CGPointMake(200,0);

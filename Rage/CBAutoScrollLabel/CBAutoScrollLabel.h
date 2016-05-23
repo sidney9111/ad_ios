@@ -43,7 +43,7 @@ typedef enum  {
 @property (nonatomic, strong) UIColor *shadowColor;
 @property (nonatomic) CGSize shadowOffset;
 @property (nonatomic) UITextAlignment textAlignment; // only applies when not auto-scrolling
-
+@property (nonatomic) BOOL autoScroll;
 /**
  * Lays out the scrollview contents, enabling text scrolling if the text will be clipped.
  * @discussion Uses [scrollLabelIfNeeded] internally.
@@ -62,6 +62,7 @@ typedef enum  {
 - (void)pauseScroll;
 - (void)resumeScroll;
 - (void)move:(CGPoint)src dest:(CGPoint)dest;
+- (void)setScroll:(BOOL)scrolling;
 /**
  * Initiates auto-scroll if the label width exceeds the bounds of the scrollview.
  */
