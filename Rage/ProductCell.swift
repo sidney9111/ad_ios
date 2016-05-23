@@ -34,6 +34,7 @@ class ProductCell: UITableViewCell {
   }()
   
   var buyButtonHandler: ((product: SKProduct) -> ())?
+  var runButtonHandler: (()->())?
   var product: SKProduct? {
     didSet {
       guard let product = product else { return }
@@ -47,7 +48,6 @@ class ProductCell: UITableViewCell {
 //        print(count)
 //        accessoryType = .None
 //        accessoryView = self.newBuyButton()
-//
 
       if RageProducts.store.isProductPurchased(product.productIdentifier) {
         accessoryType = .Checkmark
@@ -65,6 +65,24 @@ class ProductCell: UITableViewCell {
     }
   }
   
+  var gas:Int?{
+    didSet{
+      
+      detailTextLabel?.text = String(gas)
+      
+      let button = UIButton(type: .System)
+      button.setTitleColor(tintColor, forState: .Normal)
+      button.setTitle("Run", forState: .Normal)
+      button.addTarget(self,action: #selector(ProductCell.runButtonClick(_:)), forControlEvents: .TouchUpInside)
+      button.sizeToFit()
+      accessoryView = button
+    }
+  }
+  func runButtonClick(sender: AnyObject){
+    print("product cell run event")
+    //runButtonHandler?(gas:gas!)
+    runButtonHandler?()
+  }
   override func prepareForReuse() {
     super.prepareForReuse()
     

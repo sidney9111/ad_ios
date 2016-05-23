@@ -333,7 +333,7 @@ static void each_object(NSArray *objects, void (^block)(id object))
     //[UIView animateWithDuration:duration delay:self.pauseInterval options:self.animationOptions |
   [UIView animateWithDuration:duration delay:0 options:self.animationOptions |
     UIViewAnimationOptionAllowUserInteraction animations:^{
-      NSLog(@"auto scroll testing..........");
+      //NSLog(@"auto scroll testing..........");
       if(_autoScroll==false)
       {
         return;

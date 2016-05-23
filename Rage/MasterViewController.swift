@@ -123,19 +123,42 @@ extension MasterViewController {
   }
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return products.count
+    return products.count + 1
   }
 
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! ProductCell
-    
-    let product = products[indexPath.row]
-    
-    cell.product = product
-    cell.buyButtonHandler = { product in
-      RageProducts.store.buyProduct(product)
+    if(indexPath.row==products.count){
+      let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! ProductCell
+      cell.textLabel?.text="111111111111"
+      cell.gas = 3
+      cell.runButtonHandler = {
+        if(cell.gas>0){
+          cell.gas = cell.gas! - 1
+          EngineHelper.instance().minusFuel()
+        }
+        else{
+          let alertController = UIAlertController(title:"app message",message: "fuel run out!", preferredStyle: .Alert)
+          let okAction = UIAlertAction(title: "ok", style: .Default, handler: {action in print("click ok")})
+          alertController.addAction(okAction)
+          self.presentViewController(alertController, animated: true, completion: nil)
+        }
+        
+      }
+      return cell
     }
+    else{
+      let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! ProductCell
     
-    return cell
+      let product = products[indexPath.row]
+    
+      cell.product = product
+      cell.buyButtonHandler = { product in
+        RageProducts.store.buyProduct(product)
+      }
+    
+      return cell
+    }
   }
+  
+  
 }
