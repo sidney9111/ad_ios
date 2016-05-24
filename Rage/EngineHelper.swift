@@ -29,8 +29,12 @@ class EngineHelper:NSObject{
   }
   
   func counting() -> Int {
-  
-    return 100
+    //let timeStamp:Int = 1433733352
+    //let dateOfRecord = NSDate(timeIntervalSince1970:Double(timeStamp))
+    //let date = NSData()
+    let components = NSDateComponents()
+    //return 100
+    return components.minute
   
   }
 }

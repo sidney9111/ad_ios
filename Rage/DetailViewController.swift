@@ -25,20 +25,52 @@ import UIKit
 class DetailViewController: UIViewController {
   
   @IBOutlet weak var imageView: UIImageView?
-  
+  @IBOutlet weak var tipsLabel: UILabel?
+  @IBOutlet weak var timeLabel: UILabel?
+  @IBOutlet weak var nav: UINavigationBar?
   var image: UIImage? {
     didSet {
       configureView()
     }
   }
-  
+  var text: String?{
+    didSet{
+      
+      configureView()
+      
+      
+      
+    }
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
     
     configureView()
+    //self.presentedViewController?.presentingViewController!
+    
+    //title = "Details"
+    let restoreButton = UIBarButtonItem(title: "Restore", style: .Plain, target: self, action: #selector(DetailViewController.back(_:)))
+    //navigationItem.rightBarButtonItem = restoreButton
+    nav?.topItem?.leftBarButtonItem = restoreButton
+    nav?.topItem?.title = "Details"
   }
-  
+  func back(sender: AnyObject) -> Bool {
+    print("b")
+    return true
+  }
   func configureView() {
     imageView?.image = image
+    //tipsLabel?.text = text
+    if(text=="runcar"){
+      tipsLabel?.text = "spend a can of gas to run the car, enjoy the jounary"
+      //timeLabel?.enabled = true
+      timeLabel?.text = String(EngineHelper.instance().counting())
+    }
+    else{
+      //configureView()
+      tipsLabel?.text = text
+    }
+
   }
 }

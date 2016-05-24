@@ -16,6 +16,10 @@
 		64D62BE71C121CFD0059469C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64D62BDB1C121CFD0059469C /* Images.xcassets */; };
 		64D62BEA1C121CFD0059469C /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D62BDE1C121CFD0059469C /* MasterViewController.swift */; };
 		64D62BEC1C121CFD0059469C /* RageProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D62BE01C121CFD0059469C /* RageProducts.swift */; };
+		D6EA3A0C1CF3B59B007589A7 /* EngineHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EA3A0B1CF3B59B007589A7 /* EngineHelper.swift */; };
+		D6F5DCAA1CF12EC7008F7629 /* cloud_small.png in Resources */ = {isa = PBXBuildFile; fileRef = D6F5DCA71CF12EC7008F7629 /* cloud_small.png */; };
+		D6F5DCAB1CF12EC7008F7629 /* cloud_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6F5DCA81CF12EC7008F7629 /* cloud_small@2x.png */; };
+		D6F5DCAC1CF12EC7008F7629 /* cloud_small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6F5DCA91CF12EC7008F7629 /* cloud_small@3x.png */; };
 		E3355A8B1CD05E8000D92D93 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3355A8A1CD05E8000D92D93 /* StoreKit.framework */; };
 		E3804BC61CE19E4B00313FC5 /* free.png in Resources */ = {isa = PBXBuildFile; fileRef = E3804BC51CE19E4B00313FC5 /* free.png */; };
 		E3BC72901CEB166A00B3716B /* CBAutoScrollLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BC728F1CEB166A00B3716B /* CBAutoScrollLabel.m */; };
@@ -46,6 +50,10 @@
 		64D62BDC1C121CFD0059469C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Rage/Info.plist; sourceTree = SOURCE_ROOT; };
 		64D62BDE1C121CFD0059469C /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasterViewController.swift; path = Rage/MasterViewController.swift; sourceTree = SOURCE_ROOT; };
 		64D62BE01C121CFD0059469C /* RageProducts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RageProducts.swift; path = Rage/RageProducts.swift; sourceTree = SOURCE_ROOT; };
+		D6EA3A0B1CF3B59B007589A7 /* EngineHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EngineHelper.swift; path = Rage/EngineHelper.swift; sourceTree = SOURCE_ROOT; };
+		D6F5DCA71CF12EC7008F7629 /* cloud_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud_small.png; sourceTree = SOURCE_ROOT; };
+		D6F5DCA81CF12EC7008F7629 /* cloud_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cloud_small@2x.png"; sourceTree = SOURCE_ROOT; };
+		D6F5DCA91CF12EC7008F7629 /* cloud_small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cloud_small@3x.png"; sourceTree = SOURCE_ROOT; };
 		E3355A8A1CD05E8000D92D93 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		E3804BC51CE19E4B00313FC5 /* free.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = free.png; sourceTree = SOURCE_ROOT; };
 		E3BC728E1CEB166A00B3716B /* CBAutoScrollLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAutoScrollLabel.h; sourceTree = "<group>"; };
@@ -101,6 +109,7 @@
 				64D62BD61C121CFD0059469C /* AppDelegate.swift */,
 				64D62BDA1C121CFD0059469C /* IAPHelper.swift */,
 				64D62BE01C121CFD0059469C /* RageProducts.swift */,
+				D6EA3A0B1CF3B59B007589A7 /* EngineHelper.swift */,
 				64D62BDE1C121CFD0059469C /* MasterViewController.swift */,
 				E3EA9BF91CDCA25900173485 /* ImageBoardController.swift */,
 				64D62BD81C121CFD0059469C /* DetailViewController.swift */,
@@ -117,6 +126,9 @@
 		5DAF8FFE1AF403640068C264 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D6F5DCA71CF12EC7008F7629 /* cloud_small.png */,
+				D6F5DCA81CF12EC7008F7629 /* cloud_small@2x.png */,
+				D6F5DCA91CF12EC7008F7629 /* cloud_small@3x.png */,
 				E3BC72941CEB17BB00B3716B /* Rage-Bridging-Header.h */,
 				E3D1DBA31CE9D38B00E32921 /* premium.png */,
 				E3804BC51CE19E4B00313FC5 /* free.png */,
@@ -227,7 +239,10 @@
 				E3804BC61CE19E4B00313FC5 /* free.png in Resources */,
 				64180AAD1C18883300626C11 /* LaunchScreen.xib in Resources */,
 				E3D1DBA41CE9D38B00E32921 /* premium.png in Resources */,
+				D6F5DCAB1CF12EC7008F7629 /* cloud_small@2x.png in Resources */,
 				64D62BE71C121CFD0059469C /* Images.xcassets in Resources */,
+				D6F5DCAA1CF12EC7008F7629 /* cloud_small.png in Resources */,
+				D6F5DCAC1CF12EC7008F7629 /* cloud_small@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +267,7 @@
 				64D62BE61C121CFD0059469C /* IAPHelper.swift in Sources */,
 				17A72B6F1C503F36007E18ED /* ProductCell.swift in Sources */,
 				64D62BEA1C121CFD0059469C /* MasterViewController.swift in Sources */,
+				D6EA3A0C1CF3B59B007589A7 /* EngineHelper.swift in Sources */,
 				64D62BE41C121CFD0059469C /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

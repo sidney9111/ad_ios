@@ -14,6 +14,7 @@ class ImageBoardController:UIViewController{
   var touchPoint:CGPoint!
   var touchTime:CFTimeInterval!
   var _touchPressed:Bool!
+
   override func viewDidLoad() {
     super.viewDidLoad()
     

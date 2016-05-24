@@ -26,7 +26,7 @@ import StoreKit
 class MasterViewController: UITableViewController {
   
   let showDetailSegueIdentifier = "showDetail"
-  
+  let iDefaultRow = 1
   var products = [SKProduct]()
   
   override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
@@ -39,7 +39,8 @@ class MasterViewController: UITableViewController {
       
       //return RageProducts.store.isProductPurchased(product.productIdentifier)
       //20160428 暂时先置false
-      return false
+      //return false
+      return true
     }
     
     return true
@@ -49,12 +50,22 @@ class MasterViewController: UITableViewController {
     if segue.identifier == showDetailSegueIdentifier {
       guard let indexPath = tableView.indexPathForSelectedRow else { return }
       
-      let product = products[indexPath.row]
+      if(indexPath.row==0){
+        if let detailViewController = segue.destinationViewController as? DetailViewController{
+          detailViewController.text = "runcar"
+        }
+        
+      }
+      else{
+        let product = products[indexPath.row - iDefaultRow]
       
-      if let name = resourceNameForProductIdentifier(product.productIdentifier),
-             detailViewController = segue.destinationViewController as? DetailViewController {
-        let image = UIImage(named: name)
-        detailViewController.image = image
+        if let name = resourceNameForProductIdentifier(product.productIdentifier),
+             detailViewController = segue.destinationViewController as? DetailViewController
+        {
+            let image = UIImage(named: name)
+              detailViewController.image = image//测试结果 不走这里
+              detailViewController.text = "bbc"
+        }
       }
     }
   }
@@ -127,7 +138,7 @@ extension MasterViewController {
   }
 
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    if(indexPath.row==products.count){
+    if(indexPath.row==0){
       let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! ProductCell
       cell.textLabel?.text="111111111111"
       cell.gas = 3
@@ -147,9 +158,11 @@ extension MasterViewController {
       return cell
     }
     else{
+      
+      
       let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! ProductCell
     
-      let product = products[indexPath.row]
+      let product = products[indexPath.row - iDefaultRow]
     
       cell.product = product
       cell.buyButtonHandler = { product in
