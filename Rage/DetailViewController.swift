@@ -52,11 +52,25 @@ class DetailViewController: UIViewController {
     //title = "Details"
     let restoreButton = UIBarButtonItem(title: "Restore", style: .Plain, target: self, action: #selector(DetailViewController.back(_:)))
     //navigationItem.rightBarButtonItem = restoreButton
+    
     nav?.topItem?.leftBarButtonItem = restoreButton
     nav?.topItem?.title = "Details"
+    
+    //CGSize size = [str sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(width,10000.0f)lineBreakMode:UILineBreakModeWordWrap]；
+   
+    tipsLabel?.backgroundColor=UIColor.grayColor()
+    tipsLabel?.textAlignment = NSTextAlignment.Center
+    tipsLabel?.frame = CGRectMake(100,100, 160, 120);
+    tipsLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
+    tipsLabel?.numberOfLines = 0;
+//    CGSize size = [bodytext.text sizeWithFont:NULL constrainedToSize:CGSizeMake(310.0f,CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
+//    let size
+//    CGRect newFrame = bodytext.frame;
+//    newFrame.size.height = size.height;
+//    bodytext.frame = newFrame;
   }
   func back(sender: AnyObject) -> Bool {
-    print("b")
+    self.dismissViewControllerAnimated(true, completion: nil)
     return true
   }
   func configureView() {

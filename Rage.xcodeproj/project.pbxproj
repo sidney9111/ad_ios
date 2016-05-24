@@ -25,6 +25,10 @@
 		E3BC72901CEB166A00B3716B /* CBAutoScrollLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BC728F1CEB166A00B3716B /* CBAutoScrollLabel.m */; };
 		E3D1DBA41CE9D38B00E32921 /* premium.png in Resources */ = {isa = PBXBuildFile; fileRef = E3D1DBA31CE9D38B00E32921 /* premium.png */; };
 		E3EA9BFA1CDCA25900173485 /* ImageBoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA9BF91CDCA25900173485 /* ImageBoardController.swift */; };
+		E3F5D1921CF444D1002A6087 /* buy_gas.png in Resources */ = {isa = PBXBuildFile; fileRef = E3F5D1901CF444D1002A6087 /* buy_gas.png */; };
+		E3F5D1931CF444D1002A6087 /* drive.png in Resources */ = {isa = PBXBuildFile; fileRef = E3F5D1911CF444D1002A6087 /* drive.png */; };
+		E3F5D1961CF45957002A6087 /* buy_gas_9.png in Resources */ = {isa = PBXBuildFile; fileRef = E3F5D1941CF45957002A6087 /* buy_gas_9.png */; };
+		E3F5D1971CF45957002A6087 /* drive_9.png in Resources */ = {isa = PBXBuildFile; fileRef = E3F5D1951CF45957002A6087 /* drive_9.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,10 @@
 		E3BC72941CEB17BB00B3716B /* Rage-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Rage-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		E3D1DBA31CE9D38B00E32921 /* premium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = premium.png; sourceTree = SOURCE_ROOT; };
 		E3EA9BF91CDCA25900173485 /* ImageBoardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageBoardController.swift; path = Rage/ImageBoardController.swift; sourceTree = SOURCE_ROOT; };
+		E3F5D1901CF444D1002A6087 /* buy_gas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buy_gas.png; sourceTree = SOURCE_ROOT; };
+		E3F5D1911CF444D1002A6087 /* drive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drive.png; sourceTree = SOURCE_ROOT; };
+		E3F5D1941CF45957002A6087 /* buy_gas_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buy_gas_9.png; sourceTree = SOURCE_ROOT; };
+		E3F5D1951CF45957002A6087 /* drive_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drive_9.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,10 +134,14 @@
 		5DAF8FFE1AF403640068C264 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E3F5D1901CF444D1002A6087 /* buy_gas.png */,
+				E3F5D1911CF444D1002A6087 /* drive.png */,
 				D6F5DCA71CF12EC7008F7629 /* cloud_small.png */,
 				D6F5DCA81CF12EC7008F7629 /* cloud_small@2x.png */,
 				D6F5DCA91CF12EC7008F7629 /* cloud_small@3x.png */,
 				E3BC72941CEB17BB00B3716B /* Rage-Bridging-Header.h */,
+				E3F5D1941CF45957002A6087 /* buy_gas_9.png */,
+				E3F5D1951CF45957002A6087 /* drive_9.png */,
 				E3D1DBA31CE9D38B00E32921 /* premium.png */,
 				E3804BC51CE19E4B00313FC5 /* free.png */,
 				64D62BDC1C121CFD0059469C /* Info.plist */,
@@ -235,14 +247,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3F5D1931CF444D1002A6087 /* drive.png in Resources */,
 				64180AAE1C18883300626C11 /* Main.storyboard in Resources */,
 				E3804BC61CE19E4B00313FC5 /* free.png in Resources */,
 				64180AAD1C18883300626C11 /* LaunchScreen.xib in Resources */,
+				E3F5D1971CF45957002A6087 /* drive_9.png in Resources */,
 				E3D1DBA41CE9D38B00E32921 /* premium.png in Resources */,
 				D6F5DCAB1CF12EC7008F7629 /* cloud_small@2x.png in Resources */,
 				64D62BE71C121CFD0059469C /* Images.xcassets in Resources */,
+				E3F5D1921CF444D1002A6087 /* buy_gas.png in Resources */,
 				D6F5DCAA1CF12EC7008F7629 /* cloud_small.png in Resources */,
 				D6F5DCAC1CF12EC7008F7629 /* cloud_small@3x.png in Resources */,
+				E3F5D1961CF45957002A6087 /* buy_gas_9.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

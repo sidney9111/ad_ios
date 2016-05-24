@@ -22,7 +22,12 @@
 
 import UIKit
 import StoreKit
-
+/*
+ 不知道什么原因，但是连线payment后显示的view，不走prepare reuse方法
+ 不确定prepare reuse方法什么情况下触发｜不触发
+ 如果在此方法设置背景，会导致后加的cell会没背景
+ 所以在set product属性时设置背景
+ */
 class ProductCell: UITableViewCell {
   static let priceFormatter: NSNumberFormatter = {
     let formatter = NSNumberFormatter()
@@ -32,7 +37,7 @@ class ProductCell: UITableViewCell {
     
     return formatter
   }()
-  
+
   var buyButtonHandler: ((product: SKProduct) -> ())?
   var runButtonHandler: (()->())?
   var product: SKProduct? {
@@ -62,6 +67,11 @@ class ProductCell: UITableViewCell {
       } else {
         detailTextLabel?.text = "Not available"
       }
+      
+      var image = UIImage(named: "buy_gas")
+      image = image!.resizableImageWithCapInsets(UIEdgeInsetsMake(5, 5, 5, 5))
+      self.backgroundView = UIImageView(image:image)
+
     }
   }
   
@@ -89,6 +99,11 @@ class ProductCell: UITableViewCell {
     textLabel?.text = ""
     detailTextLabel?.text = ""
     accessoryView = nil
+    
+    var image = UIImage(named: "buy_gas_9")
+    image = image!.resizableImageWithCapInsets(UIEdgeInsetsMake(5, 5, 5, 5))
+    self.backgroundView = UIImageView(image:image)
+
   }
   
   func newBuyButton() -> UIButton {
