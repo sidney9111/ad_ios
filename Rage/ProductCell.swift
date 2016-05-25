@@ -71,8 +71,9 @@ class ProductCell: UITableViewCell {
       var image = UIImage(named: "buy_gas")
       image = image!.resizableImageWithCapInsets(UIEdgeInsetsMake(5, 5, 5, 5))
       self.backgroundView = UIImageView(image:image)
-
+      
     }
+  
   }
   
   var gas:Int?{
@@ -93,6 +94,14 @@ class ProductCell: UITableViewCell {
     //runButtonHandler?(gas:gas!)
     runButtonHandler?()
   }
+  override func drawRect(rect: CGRect) {
+    let context = UIGraphicsGetCurrentContext()
+  
+    CGContextSetRGBFillColor(context, 155, 155, 155, 1.0)
+    CGContextFillRect(context, rect)
+    CGContextSetStrokeColorWithColor(context, UIColor.redColor().CGColor)
+    CGContextStrokeRect(context, CGRectMake(0, rect.size.height-1, rect.size.width, 1))
+  }
   override func prepareForReuse() {
     super.prepareForReuse()
     
@@ -103,7 +112,12 @@ class ProductCell: UITableViewCell {
     var image = UIImage(named: "buy_gas_9")
     image = image!.resizableImageWithCapInsets(UIEdgeInsetsMake(5, 5, 5, 5))
     self.backgroundView = UIImageView(image:image)
-
+    
+    let additionalSeparator = UIView(frame: CGRectMake(0, self.frame.size.height, self.frame.size.width, 3))
+    additionalSeparator.backgroundColor = UIColor.greenColor()
+    
+    self.addSubview(additionalSeparator)
+    self.frame = CGRectMake(self.frame.minX, self.frame.minY, self.frame.width, self.frame.height + 3)
   }
   
   func newBuyButton() -> UIButton {

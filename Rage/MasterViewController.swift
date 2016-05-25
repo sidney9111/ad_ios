@@ -84,9 +84,9 @@ class MasterViewController: UITableViewController {
     NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MasterViewController.handlePurchaseNotification(_:)),
                                                                name: IAPHelper.IAPHelperPurchaseNotification,
                                                              object: nil)
+    //self.view.sepe
     
-    
-  }
+      }
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
@@ -171,6 +171,15 @@ extension MasterViewController {
     
       return cell
     }
+  }
+  override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    
+    let uiview = super.tableView(tableView, viewForFooterInSection: section)
+    return uiview
+  }
+ //section 才有用
+  override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    return 5
   }
   
   
